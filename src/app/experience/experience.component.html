@@ -1,0 +1,31 @@
+<section id="experience">
+    <div class="user-exp">
+        <h2 class="title-heading">Experience</h2>
+     <div class="experience-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Job Title</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let company of companies; let i = index">
+              <tr>
+                <td [attr.rowspan]="company.jobs.length + 1">{{ company.name }}</td>
+              </tr>
+              <tr *ngFor="let job of company.jobs">
+                <td>{{ job.title }}</td>
+                <td>
+                  <ul>
+                    <li *ngFor="let point of job.points">{{ point }}</li>
+                  </ul>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</section>
